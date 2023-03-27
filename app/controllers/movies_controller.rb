@@ -17,9 +17,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params.fetch(:id))
   end
 
+
   def create
-    movie_params = params.require(:movie).permit(:title, :description, :image_url)
-    
     @movie = Movie.new(movie_params)
 
     if @movie.valid?
@@ -36,10 +35,7 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movie = Movie.find(params.fetch(:id))
-
-    movie_params = params.require(:movie).permit(:title, :description)
-    
+    @movie = Movie.find(params.fetch(:id))  
     if @movie.update(movie_params)
       redirect_to @movie, notice: "Movie updated successfully."
     else
@@ -54,4 +50,9 @@ class MoviesController < ApplicationController
 
     redirect_to movies_url, notice: "Movie deleted successfully."
   end
+
+  def movie_params 
+    movie_params = params.require(:movie).permit(:title, :description, :image_url, :director_id)
+    #defining a method that can be reused throughout 
+  end 
 end
