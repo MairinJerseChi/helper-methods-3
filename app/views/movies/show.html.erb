@@ -1,6 +1,8 @@
-<div class="card">
+<div class="row"> 
+  <div class="col-md-4 offset-md-4">
+  <div class="card">
   <div class="card-header">
-    <%= link_to "#{@movie.title}", @movie %>
+    <%= link_to "Movie ##{@movie.id}", @movie %>
   </div>
 
   <div class="card-body">
@@ -40,5 +42,8 @@
 
   <div class="card-footer">
     Last updated <%= time_ago_in_words(@movie.updated_at) %> ago
+  </div>
+</div>
+
   </div>
 </div>
