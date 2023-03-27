@@ -1,9 +1,9 @@
-<% @movie.errors.full_messages.each do |message| %>
+<% foo.errors.full_messages.each do |message| %>
   <p style="color: red;"><%= message %></p>
 <% end %>
 
 
-<%= form_with model: @movie do |form| %>
+<%= form_with model: foo do |form| %>
   <div>
     <%= form.label :title %>
     <%= form.text_field :title %>
