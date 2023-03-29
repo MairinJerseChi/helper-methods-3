@@ -1,0 +1,45 @@
+<div class="card">
+        <div class="card-header">
+          <%= link_to "#{actor.name}", actor %>
+        </div>
+
+        <div class="card-body">
+          <dl>
+            <dt>
+              Name 
+            </dt>
+            <dd>
+              <%= actor.name %>
+            </dd>
+
+            <dt>
+              Bio
+            </dt>
+            <dd>
+              <%= actor.bio %>
+            </dd>
+          </dl>
+
+          <div class="row">
+            <div class="col">
+              <div class="d-grid">
+                <%= link_to edit_actor_path(actor), class: "btn btn-outline-secondary" do %>
+                  <i class="fa-regular fa-pen-to-square"></i>
+                <% end %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="d-grid">
+                <%= link_to actor, method: :delete, class: "btn btn-outline-secondary" do %>
+                  <i class="fa-regular fa-trash-can"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          Date of Birth <%= actor.dob %> ago
+        </div>
+        
+  </div>

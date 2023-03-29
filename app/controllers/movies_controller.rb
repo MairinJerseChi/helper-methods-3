@@ -1,4 +1,10 @@
 class MoviesController < ApplicationController
+
+  def force_user_sign_in
+    if session[:user_id].present? 
+      redirect_to "/users/sign_in"
+    end 
+  end 
   def new
     @new_movie = Movie.new
   end
@@ -8,7 +14,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @movies }
-
+        #if statement that is checking whether it wants json or html 
       format.html
     end
   end
